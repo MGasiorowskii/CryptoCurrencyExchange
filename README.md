@@ -60,14 +60,14 @@
 ## Database Schema
 ![databse-schema](images/database_schema.svg)
 
-## API Reference
+# API Reference
 
 <p align="center">
 <img width="700" alt="comingsoon" src="images/cooming_soon.png">
 </p>
 
 
-## How To Use
+# How To Use
 
 To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer. From your command line:
 
@@ -82,7 +82,7 @@ $ cd Exchange
 $ python manage.py runserver
 ```
 
-## Roadmap
+# Roadmap
 
 - [ ] Registration/Login 
 - [ ] Password reset by mail
