@@ -1,7 +1,9 @@
 
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-M
-Exchange/Exchange/settings.py,9\c\9c39fbc24243f8ec7c06396a79b61d20b93658f7
-I
-Exchange/Exchange/urls.py,7\e\7ee3a7c5e35870d84fc659cadfb51a68e7e85e35
+J
+Exchange/dashboard/apps.py,d\1\d152a82947fcd13008500ecd8782c6062e7e8aa8
+`
+0Exchange/dashboard/templates/dashboard/home.html,9\5\9534eb2256a337b981f2e5ac2e40363f41742c54
+K
+Exchange/dashboard/views.py,3\8\3863af46672ed5b21030505e988b85bfbb1d6a22
