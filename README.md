@@ -84,12 +84,12 @@ $ python manage.py runserver
 
 # Roadmap
 
-- [ ] Registration/Login 
-- [ ] Password reset by mail
-- [ ] Two Factor Authentication
+- [x] Registration/Login 
 - [ ] Profile
   - [ ] Referal codes
   - [ ] Adress book with saved contacts
+- [ ] Password reset by mail
+- [ ] Two Factor Authentication
 - [ ] Exchange
   - [ ] List of tokens with price
   - [ ] Token price flow charts
