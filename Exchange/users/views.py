@@ -11,6 +11,10 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f"Dear {username}, you have been successfully signed up!")
             return redirect('login')
+        else:
+            for error in form.errors.values():
+                messages.error(request, f"{error}", extra_tags='danger')
+
     else:
         form = UserRegisterForm()
 
