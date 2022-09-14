@@ -9,14 +9,17 @@
     <p class="text-center small">Enter your username & password to login</p>
   </div>
 
+  {% for _, error in  form.errors.items %}
+    <div id="UsernameInvalidFeedback" class="text-danger">{{ error }}</div>
+  {% endfor %}
+
   <form class="row g-3 needs-validation" novalidate method="post">
     {% csrf_token %}
     <div class="col-12">
       <label for="yourUsername" class="form-label">Username</label>
       <div class="input-group has-validation">
         <span class="input-group-text" id="inputGroupPrepend">@</span>
-        <input type="text" name="username" class="form-control" id="yourUsername" required>
-        <div class="invalid-feedback">Please enter your username.</div>
+        <input type="text" name="username" class="form-control" id="yourUsername" value="{{ form.data.username }}" required>
       </div>
     </div>
 

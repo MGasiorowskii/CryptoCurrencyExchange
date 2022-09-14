@@ -17,3 +17,5 @@ F
 Exchange/users/apps.py,7\0\704256847daeabe571eeb3a0632a14b188911bad
 J
 Exchange/dashboard/urls.py,3\2\32e2fecb620689961efff2082730444833cbd84c
+M
+Exchange/Exchange/settings.py,9\c\9c39fbc24243f8ec7c06396a79b61d20b93658f7
