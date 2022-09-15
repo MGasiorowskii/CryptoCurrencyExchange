@@ -84,8 +84,11 @@ $ python manage.py runserver
 
 # Roadmap
 
-- [x] Registration/Login 
-- [ ] Profile
+- [x] Registration/Login
+- [x] Logout
+- [x] Profile
+  - [ ] User update Form / Profile update Form
+  - [ ] Change password form
   - [ ] Referal codes
   - [ ] Adress book with saved contacts
 - [ ] Password reset by mail
