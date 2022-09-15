@@ -80,7 +80,11 @@ $ git clone https://github.com/MGasiorowskii/CryptoCurrencyExchange
 # Create file .env with the following content
   API_KEY='ENTER YOUR API KEY'
   DEBUG=True
-  DATABASES='YOUR DATABASE CONFIGURATION' 
+  DATABASE_NAME='YOUR DATABASE NAME'
+  DATABASE_USER='YOUR DATABASE USERNAME'
+  DATABASE_PASSWORD='YOUR DATABASE PASSWORD'
+  DATABASE_HOST='YOUR DATABASE HOST'
+  DATABASE_PORT='YOUR DATABASE PORT'
 
 # Go into the repository
 $ cd Exchange
