@@ -69,7 +69,8 @@
           </a>
         </li><!-- End Search Icon-->
 
-        <li class="nav-item dropdown">
+        {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
@@ -144,7 +145,7 @@
 
         </li><!-- End Notification Nav -->
 
-        <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
@@ -210,7 +211,7 @@
 
         </li><!-- End Messages Nav -->
 
-        <li class="nav-item dropdown pe-3">
+          <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src='{{ user.profile.image.url }}' alt="Profile" class="rounded-circle">
@@ -246,25 +247,27 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
+        {% else %}
+          <a class="nav-item pe-3" href="{% url 'register' %}">
+            <button class="btn btn-primary" type="submit">
+              <i class="bi bi-card-list"></i>
+              Register
+            </button>
+          </a>
+          <a class="nav-item pe-5" href="{% url 'login' %}">
+            <i class="bi bi-person"></i>
+            <span>Log in</span>
+          </a>
+        {% endif %}
 
+        </li><!-- End Profile Nav -->
       </ul>
     </nav><!-- End Icons Navigation -->
 
