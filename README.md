@@ -77,7 +77,7 @@ From your command line:
 # Clone this repository
 $ git clone https://github.com/MGasiorowskii/CryptoCurrencyExchange
 
-# Create file `.env` with the following content
+# Create file .env with the following content
   API_KEY='ENTER YOUR API KEY'
   DEBUG=True
   DATABASES='YOUR DATABASE CONFIGURATION' 
