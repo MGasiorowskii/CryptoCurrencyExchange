@@ -69,14 +69,28 @@
 
 # How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer.
+[Database configuration](https://docs.djangoproject.com/en/4.1/ref/settings/#databases).
+From your command line:
 
 ```bash
 # Clone this repository
 $ git clone https://github.com/MGasiorowskii/CryptoCurrencyExchange
 
+# Create file .env with the following content
+  API_KEY='ENTER YOUR API KEY'
+  DEBUG=True
+  DATABASE_NAME='YOUR DATABASE NAME'
+  DATABASE_USER='YOUR DATABASE USERNAME'
+  DATABASE_PASSWORD='YOUR DATABASE PASSWORD'
+  DATABASE_HOST='YOUR DATABASE HOST'
+  DATABASE_PORT='YOUR DATABASE PORT'
+
 # Go into the repository
 $ cd Exchange
+
+# Apply all migrations
+$ python manage.py migrate
 
 # Run the app
 $ python manage.py runserver
