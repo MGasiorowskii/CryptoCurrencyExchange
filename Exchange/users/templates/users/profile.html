@@ -80,15 +80,15 @@
                   <!-- Profile Edit Form -->
                   <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ profile_form }}
 
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="{{ user.profile.image.url }}" alt="Profile" id="profileImage">
+                        <img src="{{ user.profile.image.url }}" alt="Profile" id="profileImage" class="rounded-circle">
                         <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                          <span class="btn btn-primary">
+                            <input type="file" title="Upload new profile image" class="form-control form-control-sm">
+                          </span>
                         </div>
                       </div>
                     </div>
