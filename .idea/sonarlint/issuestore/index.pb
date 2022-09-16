@@ -27,8 +27,6 @@ K
 0Exchange/dashboard/templates/dashboard/home.html,9\5\9534eb2256a337b981f2e5ac2e40363f41742c54
 I
 Exchange/users/signals.py,7\0\7063b22d2b4d077734e5ca89b4a980643bb88ff1
-G
-Exchange/users/views.py,9\7\9771df16ef60daf94f59f4010cdc3ee37e171ece
 J
 Exchange/dashboard/urls.py,3\2\32e2fecb620689961efff2082730444833cbd84c
 G
@@ -37,17 +35,11 @@ Y
 )Exchange/users/templates/users/login.html,6\d\6d7e692787093cb40977cce54bb8fede65e630f6
 Z
 *Exchange/users/templates/users/logout.html,d\3\d3ed1fe185a9d815a92a7314e0f3007685b1643a
-X
-(Exchange/users/templates/users/base.html,b\2\b2dbeb6b8ed0c8f12b3a2a3ee86a41e356c932e7
-I
-Exchange/Exchange/urls.py,7\e\7ee3a7c5e35870d84fc659cadfb51a68e7e85e35
 J
 images/database_schema.svg,3\3\33a81dd4a542d29bd890645e5d3fde7ffcfd15e7
 N
 Exchange/dashboard/__init__.py,c\f\cf160223a8f8d70fd0113ea61f2c03abb6d09f18
 B
 Exchange/manage.py,7\c\7cb6b18d142f419c35ba306a9ce5ab12bdd0b718
-`
-0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
 M
 Exchange/Exchange/settings.py,9\c\9c39fbc24243f8ec7c06396a79b61d20b93658f7

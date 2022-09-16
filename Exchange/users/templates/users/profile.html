@@ -78,11 +78,14 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ profile_form }}
+
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="{% static 'img/profile-img.jpg' %}" alt="Profile" id="profileImage">
+                        <img src="{{ user.profile.image.url }}" alt="Profile" id="profileImage">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -100,7 +103,7 @@
                       <div class="row mb-3">
                       <label for="last_name" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="first_name" type="text" class="form-control" id="last_name" value="{{ user.last_name }}">
+                        <input name="last_name" type="text" class="form-control" id="last_name" value="{{ user.last_name }}">
                       </div>
                     </div>
 
@@ -162,7 +165,7 @@
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form>
+                  <form method="POST">
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
