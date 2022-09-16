@@ -31,15 +31,18 @@ J
 Exchange/dashboard/urls.py,3\2\32e2fecb620689961efff2082730444833cbd84c
 G
 Exchange/users/admin.py,a\2\a2a583fbad5a08a99cc33dc4db927adf4fa9fc1e
-Y
-)Exchange/users/templates/users/login.html,6\d\6d7e692787093cb40977cce54bb8fede65e630f6
-Z
-*Exchange/users/templates/users/logout.html,d\3\d3ed1fe185a9d815a92a7314e0f3007685b1643a
 J
 images/database_schema.svg,3\3\33a81dd4a542d29bd890645e5d3fde7ffcfd15e7
 N
 Exchange/dashboard/__init__.py,c\f\cf160223a8f8d70fd0113ea61f2c03abb6d09f18
 B
 Exchange/manage.py,7\c\7cb6b18d142f419c35ba306a9ce5ab12bdd0b718
-M
-Exchange/Exchange/settings.py,9\c\9c39fbc24243f8ec7c06396a79b61d20b93658f7
+X
+(Exchange/users/templates/users/base.html,b\2\b2dbeb6b8ed0c8f12b3a2a3ee86a41e356c932e7
+`
+0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
+G
+Exchange/users/forms.py,2\b\2bdb63f4ee0166b146005d4c58ef7ffddf200ab8
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
