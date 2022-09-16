@@ -43,7 +43,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings - unused</button>
                 </li>
 
                 <li class="nav-item">
@@ -78,48 +78,44 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="{% static 'img/profile-img.jpg' %}" alt="Profile" id="profileImage">
+                        <img src="{{ user.profile.image.url }}" alt="Profile" id="profileImage" class="rounded-circle">
                         <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                          <span class="btn btn-primary">
+                            <input type="file" title="Upload new profile image" class="form-control form-control-sm">
+                          </span>
                         </div>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                      <label for="first_name" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="first_name" type="text" class="form-control" id="firstName" value="{{ user.first_name }}">
+                        <input name="first_name" type="text" class="form-control" id="first_name" value="{{ user.first_name }}">
                       </div>
                     </div>
 
                       <div class="row mb-3">
-                      <label for="LastName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                      <label for="last_name" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="first_name" type="text" class="form-control" id="lastName" value="{{ user.last_name }}">
+                        <input name="last_name" type="text" class="form-control" id="last_name" value="{{ user.last_name }}">
                       </div>
                     </div>
 
                       <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                      <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="text" class="form-control" id="Email" value="{{ user.email }}">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="example" class="col-md-4 col-lg-3 col-form-label">Example</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="example" type="text" class="form-control" id="example" value="...">
+                        <input name="email" type="text" class="form-control" id="email" value="{{ user.email }}">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="submit" class="btn btn-primary" name="edit_profile">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
@@ -169,31 +165,33 @@
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form>
+                  <form method="POST">
+                    {% csrf_token %}
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
+                        <input name="old_password" type="password" class="form-control" id="currentPassword">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                        <input name="new_password1" type="password" class="form-control" id="newPassword">
+                        <div id="UsernameHelpBlock" class="form-text">{{ password_form.new_password1.help_text }}</div>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                        <input name="new_password2" type="password" class="form-control" id="renewPassword">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
+                      <button type="submit" class="btn btn-primary" name="change_password">Change Password</button>
                     </div>
                   </form><!-- End Change Password Form -->
 

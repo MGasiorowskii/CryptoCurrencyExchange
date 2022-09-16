@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
 
 
 def register(request):
@@ -22,4 +24,40 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html', {'title': "Profile", 'subtitle': 'Home'})
+    user_form = UserUpdateForm(instance=request.user)
+    profile_form = ProfileUpdateForm(instance=request.user.profile)
+    password_form = PasswordChangeForm(request.user)
+
+    if request.method == "POST":
+        if 'edit_profile' in request.POST:
+            user_form = UserUpdateForm(request.POST, request.user)
+            profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                messages.success(request, "Your profile's been updated!")
+                return redirect('profile')
+            else:
+                for _, error in user_form.errors.items():
+                    messages.error(request, f"{error[0]}", extra_tags='danger')
+
+        elif 'change_password' in request.POST:
+            password_form = PasswordChangeForm(request.user, request.POST)
+
+            if password_form.is_valid():
+                password_form.save()
+                update_session_auth_hash(request, password_form.user)
+                messages.success(request, "Your password's been updated!")
+                return redirect('profile')
+            else:
+                for _, error in password_form.errors.items():
+                    messages.error(request, f"{error[0]}", extra_tags='danger')
+
+    context = {'title': "Profile",
+               'subtitle': 'Home',
+               'user_form': user_form,
+               'profile_form': profile_form,
+               'password_form': password_form}
+
+    return render(request, 'users/profile.html', context)
