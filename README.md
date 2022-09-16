@@ -101,8 +101,8 @@ $ python manage.py runserver
 - [x] Registration/Login
 - [x] Logout
 - [x] Profile
-  - [ ] User update Form / Profile update Form
-  - [ ] Change password form
+  - [x] User update Form / Profile update Form
+  - [x] Change password form
   - [ ] Referal codes
   - [ ] Adress book with saved contacts
 - [ ] Password reset by mail
