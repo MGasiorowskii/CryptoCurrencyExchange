@@ -1,3 +1,10 @@
-from django.shortcuts import render
+import django.template.backends.django
+from rest_framework.viewsets import generics
+from .serializers import TokenSerializer
+from .models import BtcHistory
 
-# Create your views here.
+
+class UpdateAllData(generics.ListAPIView):
+    serializer_class = TokenSerializer
+    queryset = BtcHistory.objects.all()
+

@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+
+class BtcHistory(models.Model):
+
+    price = models.FloatField()
+    timestamp = models.IntegerField()
+
