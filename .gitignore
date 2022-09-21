@@ -130,3 +130,5 @@ dmypy.json
 
 # Profile pics
 Exchange/media/profile_pics/
+
+.idea/

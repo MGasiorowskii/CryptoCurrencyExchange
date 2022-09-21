@@ -43,6 +43,3 @@ X
 0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
 G
 Exchange/users/forms.py,2\b\2bdb63f4ee0166b146005d4c58ef7ffddf200ab8
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
