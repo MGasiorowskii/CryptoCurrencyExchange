@@ -24,7 +24,7 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_random_secret_key()
+SECRET_KEY = "0U18qVJY2NRwClsEszGV_SBoPKB4-oHP0t3EP418tN4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
@@ -44,7 +44,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    "django_q",
 ]
+
+
+Q_CLUSTER = {
+    "name": "Exchange",
+    "retry": 30,
+    "timeout": 10,
+    "orm": "default",  # Use Django's ORM + database for broker
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

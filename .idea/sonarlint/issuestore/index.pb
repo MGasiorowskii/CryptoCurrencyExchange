@@ -1,10 +1,6 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 J
 Exchange/dashboard/apps.py,d\1\d152a82947fcd13008500ecd8782c6062e7e8aa8
-M
-Exchange/Exchange/__init__.py,6\e\6e43f34e8dee689b850c86c90f34fe8c17bdf468
 U
 %Exchange/users/migrations/__init__.py,b\9\b95c4a6a5245e1c049e266639d90c571d74f3c2c
 P
@@ -21,25 +17,32 @@ Y
 )Exchange/users/migrations/0001_initial.py,8\5\85e9d19ee34d701bdb363a210cb68be5f4f6a20f
 J
 Exchange/users/__init__.py,1\0\108d25235709e67c4e36e77f6e37cc7e46154be6
-K
-Exchange/dashboard/views.py,3\8\3863af46672ed5b21030505e988b85bfbb1d6a22
-`
-0Exchange/dashboard/templates/dashboard/home.html,9\5\9534eb2256a337b981f2e5ac2e40363f41742c54
 I
 Exchange/users/signals.py,7\0\7063b22d2b4d077734e5ca89b4a980643bb88ff1
-J
-Exchange/dashboard/urls.py,3\2\32e2fecb620689961efff2082730444833cbd84c
 G
 Exchange/users/admin.py,a\2\a2a583fbad5a08a99cc33dc4db927adf4fa9fc1e
-J
-images/database_schema.svg,3\3\33a81dd4a542d29bd890645e5d3fde7ffcfd15e7
-N
-Exchange/dashboard/__init__.py,c\f\cf160223a8f8d70fd0113ea61f2c03abb6d09f18
-B
-Exchange/manage.py,7\c\7cb6b18d142f419c35ba306a9ce5ab12bdd0b718
 X
 (Exchange/users/templates/users/base.html,b\2\b2dbeb6b8ed0c8f12b3a2a3ee86a41e356c932e7
 `
 0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
 G
 Exchange/users/forms.py,2\b\2bdb63f4ee0166b146005d4c58ef7ffddf200ab8
+Y
+)Exchange/dashboard/migrations/__init__.py,e\c\ec694f47543ffb0a8c0f1fd221f8f58c5fe3e6c0
+W
+'Exchange/API/migrations/0001_initial.py,a\d\adb1151e1e07e6bfde09f326e1692d55fb424afc
+S
+#Exchange/API/migrations/__init__.py,c\f\cf2c2fc06d693b902656801d1053088111928f40
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+N
+Exchange/dashboard/__init__.py,c\f\cf160223a8f8d70fd0113ea61f2c03abb6d09f18
+I
+Exchange/Exchange/asgi.py,d\4\d46df2b602bccb9bbba8e5017c13aead77a9cf21
+H
+Exchange/API/__init__.py,b\8\b8caa8e91caed24a8d04ff49c4f5d18e0750b533
+P
+ Exchange/celerybeat-schedule.bak,9\0\90e78b42081ca8816a5e8ca9d015bb203625f9e4
+P
+ Exchange/celerybeat-schedule.dir,e\a\eaab1047fa9d091ffaaf616c4c3591cdb5edf9ee
