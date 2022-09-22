@@ -19,8 +19,7 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     success_url = '/login'
 
 
-def register(request):
-
+def register(self, request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -36,7 +35,7 @@ def register(request):
 
 
 @login_required
-def profile(request):
+def profile(self, request):
     user_form = UserUpdateForm(instance=request.user)
     profile_form = ProfileUpdateForm(instance=request.user.profile)
     password_form = PasswordChangeForm(request.user)
