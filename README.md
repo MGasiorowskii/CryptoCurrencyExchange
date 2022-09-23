@@ -105,7 +105,7 @@ $ python manage.py runserver
   - [x] Change password form
   - [ ] Referal codes
   - [ ] Adress book with saved contacts
-- [ ] Password reset by mail
+- [x] Password reset by mail
 - [ ] Two Factor Authentication
 - [ ] Exchange
   - [ ] List of tokens with price
