@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Token(models.Model):
-    name = models.CharField(blank=False)
+    name = models.TextField(blank=False)
     symbol = models.TextField(max_length=10, blank=False)
     actual_price = models.FloatField(blank=False)
 
@@ -14,7 +14,7 @@ class Token(models.Model):
 class Wallet(models.Model):
     token = models.OneToOneField(Token, on_delete=models.CASCADE)
     quantity = models.FloatField(blank=False)
-    address = models.CharField(blank=False)
+    address = models.TextField(blank=False)
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
 
 

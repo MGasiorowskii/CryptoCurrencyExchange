@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "dashboard.apps.DashboardConfig",
     "users.apps.UsersConfig",
-    "wallet.apps.WalletConfig"
+    "wallet.apps.WalletConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
