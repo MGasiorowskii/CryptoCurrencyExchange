@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "rest_framework",
-    "API.apps.ApiConfig",
     "dashboard.apps.DashboardConfig",
     "users.apps.UsersConfig",
     "wallet.apps.WalletConfig"
