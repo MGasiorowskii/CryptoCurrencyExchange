@@ -3,7 +3,7 @@ import requests
 import pytz
 from wallet.models import Token, History
 
-TOKENS = ['bitcoin', 'ethereum']
+TOKENS = ['bitcoin', 'ethereum', 'tether', 'binancecoin', 'solana', 'cardano']
 
 
 def download_historical_data():

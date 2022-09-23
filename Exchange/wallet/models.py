@@ -13,10 +13,10 @@ class Token(models.Model):
 
 
 class Wallet(models.Model):
-    token = models.OneToOneField(Token, on_delete=models.CASCADE)
-    quantity = models.FloatField(blank=False)
+    token = models.ForeignKey(Token, on_delete=models.CASCADE)
+    quantity = models.FloatField(default=0.0, blank=False)
     address = models.TextField(blank=False)
-    owner = models.OneToOneField(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Wallet of {self.owner} - {self.token}"
