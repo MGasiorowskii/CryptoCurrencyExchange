@@ -33,8 +33,6 @@ G
 H
 Exchange/wallet/admin.py,d\c\dc19e2aaaa0c662fec1a1bde0648b6d948f1030c
 G
-Exchange/wallet/apps.py,4\4\44ac034437412e45d2e239b13173a53692091199
-G
 Exchange/wallet/urls.py,4\f\4fbdf9a04f36366409d8f7391b92d4e8a1ac99e5
 H
 Exchange/wallet/views.py,5\1\5142c2609df51b08b72c2a55ef076e2b819a5dd6
@@ -50,8 +48,6 @@ K
 Exchange/dashboard/views.py,3\8\3863af46672ed5b21030505e988b85bfbb1d6a22
 W
 'Exchange/wallet/tasks/periodic/tasks.py,1\3\13312375b164ba8c03b0c7f38fece374c24a6453
-`
-0Exchange/dashboard/templates/dashboard/home.html,9\5\9534eb2256a337b981f2e5ac2e40363f41742c54
 I
 Exchange/Exchange/urls.py,7\e\7ee3a7c5e35870d84fc659cadfb51a68e7e85e35
 F
