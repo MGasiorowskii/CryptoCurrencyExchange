@@ -202,7 +202,7 @@
                     </div>
 
                     <div class="d-grid gap-2 mt-3">
-                      <button type="submit" class="btn btn-success">Buy BTC</button>
+                      <button type="submit" name="buy_token" class="btn btn-success">Buy BTC</button>
                     </div>
 
                   </div>
@@ -222,7 +222,8 @@
                 <div class="card-body">
                   <h5 class="card-title">Sell <span>| Bitcoin</span></h5>
                                 <!-- Advanced Form Elements -->
-              <form>
+              <form method="POST">
+                {% csrf_token %}
 
                 <div class="row mb-2">
                   <div class="col-sm-12">
@@ -236,12 +237,12 @@
 
                     <div class="input-group mb-3">
                       <span class="input-group-text">  Amount  </span>
-                      <input align="right "type="number" class="form-control" value="0.00" step="0.0001"  min="0">
+                      <input name="amount" type="number" class="form-control" value="0.00" step="0.0001"  min="0">
                       <span class="input-group-text">BTC</span>
                     </div>
 
                     <div class="d-grid gap-2 mt-3">
-                      <button type="button" class="btn btn-danger">Sell BTC</button>
+                      <button type="submit" name="sell_token" class="btn btn-danger">Sell BTC</button>
                     </div>
 
                   </div>
