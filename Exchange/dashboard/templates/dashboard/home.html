@@ -188,21 +188,21 @@
                 <div class="row mb-2">
                   <div class="col-sm-12">
 
-                    <label class="form-label">Available {{ quantity }} BTC </label>
+                    <label class="form-label">Available {{ user_usdt_quantity }} USDT </label>
                     <div class="input-group mb-3">
                       <span class="input-group-text">Actual Price</span>
                       <input type="text" class="form-control" value="{{ price }}" disabled>
-                      <span class="input-group-text">USD</span>
+                      <span class="input-group-text">USDT</span>
                     </div>
 
                     <div class="input-group mb-3">
                       <span class="input-group-text">  Amount  </span>
-                      <input align="right "type="number" name="amount" class="form-control" value="0.00" step="0.1"  min="0" max="{{ quantity }}">
+                      <input type="number" name="amount" class="form-control" value="0.00" step="0.0001"  min="0">
                       <span class="input-group-text">BTC</span>
                     </div>
 
                     <div class="d-grid gap-2 mt-3">
-                      <button type="submit" class="btn btn-success">Buy BTC</button>
+                      <button type="submit" name="buy_token" class="btn btn-success">Buy BTC</button>
                     </div>
 
                   </div>
@@ -222,26 +222,27 @@
                 <div class="card-body">
                   <h5 class="card-title">Sell <span>| Bitcoin</span></h5>
                                 <!-- Advanced Form Elements -->
-              <form>
+              <form method="POST">
+                {% csrf_token %}
 
                 <div class="row mb-2">
                   <div class="col-sm-12">
 
-                    <label class="form-label">Available 1 BTC </label>
+                    <label class="form-label">Available {{ user_token_quantity }} BTC </label>
                     <div class="input-group mb-3">
                       <span class="input-group-text">Actual Price</span>
-                      <input type="text" class="form-control" value="...price..." disabled>
+                      <input type="text" class="form-control" value="{{ price }}" disabled>
                       <span class="input-group-text">USD</span>
                     </div>
 
                     <div class="input-group mb-3">
                       <span class="input-group-text">  Amount  </span>
-                      <input align="right "type="number" class="form-control" value="0.00" step="0.1"  min="0" max="1">
+                      <input name="amount" type="number" class="form-control" value="0.00" step="0.0001"  min="0">
                       <span class="input-group-text">BTC</span>
                     </div>
 
                     <div class="d-grid gap-2 mt-3">
-                      <button type="button" class="btn btn-danger">Sell BTC</button>
+                      <button type="submit" name="sell_token" class="btn btn-danger">Sell BTC</button>
                     </div>
 
                   </div>
