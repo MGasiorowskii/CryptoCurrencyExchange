@@ -1,22 +1,60 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render
 from wallet.models import Token, Wallet
 from .forms import BuyForm, SellForm
 
 
+EXCHANGE_PK = 13
+USDT_PK = 3
+TRANSACTION_FEE = 5
+
+
 @login_required
 def home(request):
     tokens = Token.objects.all()
+    token_actual_price = Token.objects.get(name="bitcoin").actual_price
 
-    actual_price = Token.objects.get(name="bitcoin").actual_price
     user_pk = request.user.pk
-    token_quantity = Wallet.objects.get(owner=user_pk, token=1).quantity
+    user_token_wallet = Wallet.objects.get(owner=user_pk, token=1)
+    user_usdt_wallet = Wallet.objects.get(owner=user_pk, token=USDT_PK)
+    user_token_quantity = user_token_wallet.quantity
+    user_usdt_quantity = user_usdt_wallet.quantity
+
+    exchange_token_wallet = Wallet.objects.get(owner=EXCHANGE_PK, token=1)
+    exchange_usdt_wallet = Wallet.objects.get(owner=EXCHANGE_PK, token=USDT_PK)
+    exchange_token_quantity = exchange_token_wallet.quantity
+    exchange_usdt_quantity = exchange_usdt_wallet.quantity
 
     if request.method == "POST":
         buy_form = BuyForm(request.POST)
-        if buy_form.is_valid():
-            messages.success(request, f"its work ")
+        token_actual_price = Token.objects.get(name="bitcoin").actual_price
+
+        amount_buyer = float(buy_form.data['amount'])
+        transaction_price = token_actual_price * amount_buyer + TRANSACTION_FEE
+
+        if buy_form.is_valid() and transaction_price <= user_usdt_quantity:
+
+            if amount_buyer <= exchange_token_quantity:
+                user_token_wallet.quantity = user_token_quantity + amount_buyer
+                user_usdt_wallet.quantity = user_usdt_quantity - transaction_price
+
+                exchange_token_wallet.quantity = exchange_token_quantity - amount_buyer
+                exchange_usdt_wallet.quantity = exchange_usdt_quantity + transaction_price
+
+                user_token_wallet.save()
+                user_usdt_wallet.save()
+                exchange_token_wallet.save()
+                exchange_usdt_wallet.save()
+
+                user_usdt_quantity = user_usdt_wallet.quantity
+
+                messages.success(request, f"You bought {amount_buyer} BTC")
+            else:
+                messages.error(request, f"Thr operation can not be completed")
+        else:
+            messages.warning(request, f"The operation can not be completed - You are too poor")
 
     else:
         buy_form = BuyForm()
@@ -24,6 +62,7 @@ def home(request):
     return render(request, 'dashboard/home.html', {'title': 'Dashboard',
                                                    'subtitle': 'Home',
                                                    'tokens': tokens,
-                                                   'price': actual_price,
-                                                   'form': buy_form,
-                                                   'quantity': token_quantity})
+                                                   'price': token_actual_price,
+                                                   'buy_form': buy_form,
+                                                   'user_usdt_quantity': user_usdt_quantity,
+                                                   'user_token_quantity': user_token_quantity})
