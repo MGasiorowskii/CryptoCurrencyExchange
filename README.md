@@ -107,10 +107,10 @@ $ python manage.py runserver
   - [ ] Adress book with saved contacts
 - [x] Password reset by mail
 - [ ] Two Factor Authentication
-- [ ] Exchange
-  - [ ] List of tokens with price
+- [x] Exchange
+  - [x] List of tokens with price
   - [ ] Token price flow charts
-- [ ] Trading tokens on the exchange
+- [x] Trading tokens on the exchange
 - [ ] Withdrawal/Deposit fiat and crypto
 - [ ] History of operations
 - [ ] Creating signals
