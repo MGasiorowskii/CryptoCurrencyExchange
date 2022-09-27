@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.shortcuts import render
 from wallet.models import Token, Wallet
 from .forms import BuySellForm
+from django.views.generic.detail import DetailView
 
 
 EXCHANGE_PK = 13
@@ -96,3 +97,25 @@ def home(request):
                                                    'form': form,
                                                    'user_usdt_quantity': user_usdt_quantity,
                                                    'user_token_quantity': user_token_quantity})
+
+
+class TokenDetailView(DetailView):
+    model = Token
+    template_name = "dashboard/token.html"
+
+    def get_context_data(self, request, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        user_pk = request.user.pk
+        user_token_wallet = Wallet.objects.get(owner=user_pk, token=self.object.pk)
+        user_usdt_wallet = Wallet.objects.get(owner=user_pk, token=USDT_PK)
+        context['form'] = BuySellForm()
+        context['user_token_wallet'] = user_token_wallet
+        context['user_usdt_wallet'] = user_usdt_wallet
+        return context
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data(request=request, object=self.object)
+        return self.render_to_response(context)
+
