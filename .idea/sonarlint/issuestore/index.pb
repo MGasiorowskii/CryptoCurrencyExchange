@@ -36,12 +36,6 @@ G
 Exchange/wallet/urls.py,4\f\4fbdf9a04f36366409d8f7391b92d4e8a1ac99e5
 Z
 *Exchange/wallet/tasks/periodic/__init__.py,f\f\ffedcf96e7cb4f4107c1b4f8bd1c7771f8d2f478
-J
-Exchange/dashboard/urls.py,3\2\32e2fecb620689961efff2082730444833cbd84c
-`
-0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
-W
-'Exchange/wallet/tasks/periodic/tasks.py,1\3\13312375b164ba8c03b0c7f38fece374c24a6453
 I
 Exchange/Exchange/urls.py,7\e\7ee3a7c5e35870d84fc659cadfb51a68e7e85e35
 F
@@ -52,5 +46,11 @@ J
 Exchange/wallet/signals.py,1\2\1205c84559ac6c18ab17ebe6d2cc4412548a2a53
 G
 Exchange/wallet/apps.py,4\4\44ac034437412e45d2e239b13173a53692091199
-`
-0Exchange/dashboard/templates/dashboard/home.html,9\5\9534eb2256a337b981f2e5ac2e40363f41742c54
+H
+Exchange/wallet/views.py,5\1\5142c2609df51b08b72c2a55ef076e2b819a5dd6
+Y
+)Exchange/users/templates/users/login.html,6\d\6d7e692787093cb40977cce54bb8fede65e630f6
+[
++Exchange/users/templates/users/profile.html,4\c\4c02bc0bb2ede97681bb9a034b8c2780c84f00c0
+G
+Exchange/users/forms.py,2\b\2bdb63f4ee0166b146005d4c58ef7ffddf200ab8
