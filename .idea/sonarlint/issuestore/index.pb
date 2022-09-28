@@ -54,3 +54,11 @@ Y
 +Exchange/users/templates/users/profile.html,4\c\4c02bc0bb2ede97681bb9a034b8c2780c84f00c0
 G
 Exchange/users/forms.py,2\b\2bdb63f4ee0166b146005d4c58ef7ffddf200ab8
+W
+'Exchange/wallet/tasks/periodic/tasks.py,1\3\13312375b164ba8c03b0c7f38fece374c24a6453
+G
+Exchange/users/views.py,9\7\9771df16ef60daf94f59f4010cdc3ee37e171ece
+L
+Exchange/dashboard/models.py,0\9\0925b3efa4c4eb816ac0299bfff8cba675c8eff6
+H
+Exchange/users/models.py,8\5\8545d7fdd7ee42273479c616b2d192ea71449c6b
