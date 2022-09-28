@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render
-from wallet.models import Token, Wallet
+from wallet.models import Token, Wallet, History
 from .forms import BuySellForm
 from django.views.generic.detail import DetailView
 
@@ -15,10 +15,16 @@ TRANSACTION_FEE = 5
 @login_required
 def home(request):
     tokens = Token.objects.all()
+    history = History.objects.filter(token_id='1').order_by('date_time')[:50]
+
+    prices = [data.price for data in history]
+    date_times = [f"{data.date_time}" for data in history]
 
     return render(request, 'dashboard/home.html', {'title': 'Dashboard',
                                                    'subtitle': 'Home',
-                                                   'tokens': tokens})
+                                                   'tokens': tokens,
+                                                   'prices': prices,
+                                                   'date_times': date_times})
 
 
 class TokenDetailView(DetailView):

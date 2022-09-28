@@ -62,5 +62,3 @@ L
 Exchange/dashboard/models.py,0\9\0925b3efa4c4eb816ac0299bfff8cba675c8eff6
 H
 Exchange/users/models.py,8\5\8545d7fdd7ee42273479c616b2d192ea71449c6b
-`
-0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
