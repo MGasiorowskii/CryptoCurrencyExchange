@@ -64,5 +64,3 @@ H
 Exchange/users/models.py,8\5\8545d7fdd7ee42273479c616b2d192ea71449c6b
 `
 0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
-`
-0Exchange/dashboard/templates/dashboard/home.html,9\5\9534eb2256a337b981f2e5ac2e40363f41742c54
