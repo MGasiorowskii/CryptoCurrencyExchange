@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 <div class="pagetitle">
-      <h1>{{ object.name.capitalize }}</h1>
+      <h1>{{ title }}</h1>
     <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Trading</a></li>
-          <li class="breadcrumb-item active">{{ object.name.capitalize }}</li>
+          <li class="breadcrumb-item active">{{ title }}</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -50,7 +50,17 @@
                       </tr>
                     </thead>
                     <tbody>
+                    {% for token in tokens %}
+                      <tr>
+                        <th scope="row"><a href="{% url 'token-detail' slug=token.name %}"><img src="{{ token.image.url }}" alt=""></a></th>
+                        <td><a href="{% url 'token-detail' slug=token.name %}" class="card-title">{{ token.name.capitalize }} <span> {{ token.symbol }}</span></a></td>
+                        <td class="fw-bold">${{token.actual_price}}</td>
+                        <td>???</td>
+                        <td>???</td>
+                        <td>???</td>
+                      </tr>
 
+                    {% endfor %}
                     </tbody>
                   </table>
 

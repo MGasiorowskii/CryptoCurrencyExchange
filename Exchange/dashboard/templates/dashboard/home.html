@@ -159,13 +159,14 @@
                     <tbody>
                     {% for token in tokens %}
                       <tr>
-                        <th scope="row"><a href="#"><img src="{{ token.image.url }}" alt=""></a></th>
-                        <td><a href="#" class="card-title">{{ token.name.capitalize }} <span> {{ token.symbol }}</span></a></td>
+                        <th scope="row"><a href="{% url 'token-detail' slug=token.name %}"><img src="{{ token.image.url }}" alt=""></a></th>
+                        <td><a href="{% url 'token-detail' slug=token.name %}" class="card-title">{{ token.name.capitalize }} <span> {{ token.symbol }}</span></a></td>
                         <td class="fw-bold">${{token.actual_price}}</td>
                         <td>???</td>
                         <td>???</td>
                         <td>???</td>
                       </tr>
+
                     {% endfor %}
                     </tbody>
                   </table>
@@ -174,29 +175,6 @@
 
               </div>
             </div><!-- End Top CryptoCurrencies -->
-
-            <!-- Trading Form - Buy-->
-            <div class="col-lg-6">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title">Buy <span>| Bitcoin</span></h5>
-
-                </div>
-
-              </div>
-            </div><!-- End Trading Form - Buy-->
-
-            <!-- Trading Form - Sell-->
-            <div class="col-lg-6">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title">Sell <span>| Bitcoin</span></h5>
-                </div>
-
-              </div>
-            </div><!-- End Trading Form - Sell-->
 
             <!-- Chart -->
             <div class="col-12">
@@ -216,7 +194,7 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Bitcoin <span>| Chart</span></h5>
 
                   <!-- Line Chart -->
                   <div id="reportsChart"></div>

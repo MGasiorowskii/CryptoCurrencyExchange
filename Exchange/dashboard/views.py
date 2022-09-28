@@ -24,6 +24,7 @@ def home(request):
 class TokenDetailView(DetailView):
     model = Token
     template_name = "dashboard/token.html"
+    slug_field = 'name'
 
     def get_context_data(self, request, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -34,7 +35,8 @@ class TokenDetailView(DetailView):
         context['form'] = BuySellForm()
         context['user_token_wallet'] = user_token_wallet
         context['user_usdt_wallet'] = user_usdt_wallet
-        context['tokens'] = Token
+        context['tokens'] = Token.objects.all()
+        context['title'] = self.object.name.capitalize()
         return context
 
     def get(self, request, *args, **kwargs):
@@ -42,7 +44,6 @@ class TokenDetailView(DetailView):
         context = self.get_context_data(request=request, object=self.object)
         return self.render_to_response(context)
 
-    @login_required
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(request=request, object=self.object)
