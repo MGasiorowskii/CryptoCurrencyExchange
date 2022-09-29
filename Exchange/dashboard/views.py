@@ -5,6 +5,8 @@ from django.shortcuts import render
 from wallet.models import Token, Wallet, History
 from .forms import BuySellForm
 from django.views.generic.detail import DetailView
+import plotly.offline as opy
+import plotly.graph_objs as go
 
 
 EXCHANGE_PK = 13
@@ -15,16 +17,24 @@ TRANSACTION_FEE = 5
 @login_required
 def home(request):
     tokens = Token.objects.all()
-    history = History.objects.filter(token_id='1').order_by('date_time')[:50]
+    history = History.objects.filter(token_id='1').order_by('date_time')
 
     prices = [data.price for data in history]
     date_times = [f"{data.date_time}" for data in history]
+    #trace1 = go.Scatter(x=date_times, y=prices, marker={'color': 'red', 'symbol': 104, 'size': 10},
+                        #mode="lines", name='1st Trace')
+
+    #layout = go.Layout(title="Meine Daten", xaxis={'title': 'x1'}, yaxis={'title': 'x2'})
+    #figure = go.Figure(data=trace1, layout=layout)
+    fig = go.Figure([go.Scatter(x=date_times, y=prices)])
+    graph = fig.to_html(full_html=False, default_height=500, default_width=700)
 
     return render(request, 'dashboard/home.html', {'title': 'Dashboard',
                                                    'subtitle': 'Home',
                                                    'tokens': tokens,
                                                    'prices': prices,
-                                                   'date_times': date_times})
+                                                   'date_times': date_times,
+                                                   'graph': graph})
 
 
 class TokenDetailView(DetailView):

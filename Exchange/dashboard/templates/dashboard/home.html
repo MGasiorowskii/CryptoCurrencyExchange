@@ -176,22 +176,9 @@
               </div>
             </div><!-- End Top CryptoCurrencies -->
 
-            <!-- Chart -->
+            <!-- Chart 1-->
             <div class="col-12">
               <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
 
                 <div class="card-body">
                   <h5 class="card-title">Bitcoin <span>| Chart</span></h5>
@@ -247,6 +234,60 @@
                   </script>
                   <!-- End Line Chart -->
 
+                </div>
+
+              </div>
+            </div><!-- End Chart -->
+
+                        <!-- Chart 2-->
+            <div class="col-12">
+              <div class="card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Bitcoin <span>| Chart - TradingView</span></h5>
+
+                  <!-- TradingView Widget BEGIN -->
+                  <div class="tradingview-widget-container">
+                <div id="tradingview_9d77f"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BTCUSDT Chart</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                new TradingView.widget(
+                {
+                "autosize": true,
+                "symbol": "BINANCE:BTCUSDT",
+                "interval": "1",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "allow_symbol_change": true,
+                "container_id": "tradingview_9d77f"
+              }
+                );
+                </script>
+              </div>
+                  <!-- TradingView Widget END -->
+                </div>
+
+              </div>
+            </div><!-- End Chart -->
+
+            <!-- Chart 3-->
+            <div class="col-12">
+              <div class="card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Bitcoin <span>| Chart - TradingView</span></h5>
+
+                  {{ graph|safe }}
+
+                </div>
+
+              </div>
+                  <!-- TradingView Widget END -->
                 </div>
 
               </div>
