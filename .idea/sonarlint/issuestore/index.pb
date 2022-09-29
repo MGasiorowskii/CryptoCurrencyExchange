@@ -30,8 +30,6 @@ F
 Exchange/users/apps.py,7\0\704256847daeabe571eeb3a0632a14b188911bad
 G
 Exchange/users/admin.py,a\2\a2a583fbad5a08a99cc33dc4db927adf4fa9fc1e
-H
-Exchange/wallet/admin.py,d\c\dc19e2aaaa0c662fec1a1bde0648b6d948f1030c
 G
 Exchange/wallet/urls.py,4\f\4fbdf9a04f36366409d8f7391b92d4e8a1ac99e5
 Z
@@ -42,8 +40,6 @@ F
 Exchange/users/urls.py,2\4\24e33fc85d5a0de62ad0aa2571fe976deea52f06
 I
 Exchange/users/signals.py,7\0\7063b22d2b4d077734e5ca89b4a980643bb88ff1
-J
-Exchange/wallet/signals.py,1\2\1205c84559ac6c18ab17ebe6d2cc4412548a2a53
 G
 Exchange/wallet/apps.py,4\4\44ac034437412e45d2e239b13173a53692091199
 H
@@ -58,7 +54,9 @@ W
 'Exchange/wallet/tasks/periodic/tasks.py,1\3\13312375b164ba8c03b0c7f38fece374c24a6453
 G
 Exchange/users/views.py,9\7\9771df16ef60daf94f59f4010cdc3ee37e171ece
-L
-Exchange/dashboard/models.py,0\9\0925b3efa4c4eb816ac0299bfff8cba675c8eff6
 H
 Exchange/users/models.py,8\5\8545d7fdd7ee42273479c616b2d192ea71449c6b
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+`
+0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
