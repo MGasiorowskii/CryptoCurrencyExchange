@@ -1,8 +1,9 @@
 from wallet.models.history import History
+from typing import Optional
 import plotly.graph_objs as go
 
 
-def create_plot(samples: int, token_id: int, color: str = 'red') -> dict:
+def create_plot(token_id: int, color: Optional[str] = 'red', samples: Optional[int] = None) -> dict:
     """Returns a graph of the history of the price of a token with the given id"""
 
     history = History.objects.filter(token_id=token_id).order_by('-date_time')[:samples]

@@ -38,7 +38,5 @@ G
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 `
 0Exchange/dashboard/templates/dashboard/base.html,6\0\6086e8bd030beeb672b56b386695c0416e21cb6d
-a
-1Exchange/dashboard/templates/dashboard/token.html,6\4\6491b3a63c551a1cb79b7d1d09affc7698be4489
 K
 Exchange/dashboard/tests.py,1\3\13f931d290c65d521aa9556652fd80e4a420d5cc
