@@ -1,7 +1,9 @@
 import datetime
 import requests
 import pytz
-from wallet.models import Token, History
+from wallet.models.token import Token
+from wallet.models.history import History
+
 
 TOKENS = ['bitcoin', 'ethereum', 'tether', 'binancecoin', 'solana', 'cardano']
 

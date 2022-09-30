@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "dashboard.apps.DashboardConfig",
     "users.apps.UsersConfig",
     "wallet.apps.WalletConfig",
+    "trading.apps.TradingConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -51,7 +52,7 @@ INSTALLED_APPS = [
 Q_CLUSTER = {
     "name": "Exchange",
     "retry": 30,
-    "timeout": 10,
+    "timeout": 30,
     "orm": "default",  # Use Django's ORM + database for broker
 }
 
@@ -124,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Warsaw"
 
 USE_I18N = True
 
