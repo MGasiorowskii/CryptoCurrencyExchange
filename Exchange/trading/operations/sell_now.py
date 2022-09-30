@@ -3,6 +3,7 @@ from django.http import HttpRequest
 from wallet.models.wallet import Wallet
 from wallet.models.token import Token
 from .get_core_information import get_core_information
+from .save_transaction_history import save_trading_history
 
 
 def sell_now(context: dict, request: HttpRequest, actual_price: float, token_pk: int) -> dict:
@@ -35,6 +36,12 @@ def sell_now(context: dict, request: HttpRequest, actual_price: float, token_pk:
             context['user_usdt_wallet'] = user_usdt_wallet
 
             token = Token.objects.get(pk=token_pk)
+
+            save_trading_history(user=request.user,
+                                 token=token,
+                                 quantity=amount_buyer,
+                                 transaction_type='sell',
+                                 transaction_price=transaction_price)
 
             messages.success(request, f"You sell  {amount_buyer} {token.symbol}  for  {transaction_price} USDT")
         else:

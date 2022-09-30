@@ -7,6 +7,7 @@ from django.views.generic.detail import DetailView
 from dashboard.utils import create_plot
 from trading.operations.buy_now import buy_now
 from trading.operations.sell_now import sell_now
+from trading.operations.get_core_information import get_core_information
 
 
 class TokenDetailView(DetailView):
@@ -17,9 +18,11 @@ class TokenDetailView(DetailView):
     def get_context_data(self, request, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        _, usdt_pk, _ = get_core_information()
+
         user_pk = request.user.pk
         user_token_wallet = Wallet.objects.get(owner=user_pk, token=self.object.pk)
-        user_usdt_wallet = Wallet.objects.get(owner=user_pk, token=USDT_PK)
+        user_usdt_wallet = Wallet.objects.get(owner=user_pk, token=usdt_pk)
 
         context['form'] = BuySellForm()
         context['user_token_wallet'] = user_token_wallet
