@@ -5,6 +5,8 @@ from wallet.models.wallet import Wallet
 from .forms import BuySellForm
 from django.views.generic.detail import DetailView
 from dashboard.utils import create_plot
+from trading.operations.buy_now import buy_now
+from trading.operations.sell_now import sell_now
 
 EXCHANGE_PK = 13
 USDT_PK = 3
@@ -22,6 +24,7 @@ class TokenDetailView(DetailView):
         user_pk = request.user.pk
         user_token_wallet = Wallet.objects.get(owner=user_pk, token=self.object.pk)
         user_usdt_wallet = Wallet.objects.get(owner=user_pk, token=USDT_PK)
+
         context['form'] = BuySellForm()
         context['user_token_wallet'] = user_token_wallet
         context['user_usdt_wallet'] = user_usdt_wallet
@@ -46,63 +49,16 @@ class TokenDetailView(DetailView):
 
     def form_validation(self, context, request):
 
-        form = context['form']
-        amount_buyer = float(form.data['amount'])
-        transaction_price = self.object.actual_price * amount_buyer + TRANSACTION_FEE
-        user_token_wallet = context['user_token_wallet']
-        user_usdt_wallet = context['user_usdt_wallet']
-        exchange_token_wallet = Wallet.objects.get(owner=EXCHANGE_PK, token=self.object.pk)
-        exchange_usdt_wallet = Wallet.objects.get(owner=EXCHANGE_PK, token=USDT_PK)
-
         if 'sell_token' in request.POST:
-
-            if form.is_valid() and amount_buyer <= user_token_wallet.quantity:
-
-                if transaction_price <= exchange_usdt_wallet.quantity:
-                    user_token_wallet.quantity = user_token_wallet.quantity - amount_buyer
-                    user_usdt_wallet.quantity = user_usdt_wallet.quantity + transaction_price
-
-                    exchange_token_wallet.quantity = exchange_token_wallet.quantity + amount_buyer
-                    exchange_usdt_wallet.quantity = exchange_usdt_wallet.quantity - transaction_price
-
-                    user_token_wallet.save()
-                    user_usdt_wallet.save()
-                    exchange_token_wallet.save()
-                    exchange_usdt_wallet.save()
-
-                    context['user_usdt_wallet'] = user_token_wallet
-                    context['user_usdt_wallet'] = user_usdt_wallet
-
-                    messages.success(request, f"You sell {amount_buyer} BTC")
-                else:
-                    messages.error(request, extra_tags="danger",
-                                   message=f"The operation can not be completed - stock exchange doesn't have the resources")
-            else:
-                messages.warning(request, f"The operation can not be completed - You are too poor")
+            context = sell_now(context=context,
+                               request=request,
+                               actual_price=self.object.actual_price,
+                               token_pk=self.object.pk)
 
         elif 'buy_token' in request.POST:
-
-            if form.is_valid() and transaction_price <= user_usdt_wallet.quantity:
-
-                if amount_buyer <= exchange_token_wallet.quantity:
-                    user_token_wallet.quantity = user_token_wallet.quantity + amount_buyer
-                    user_usdt_wallet.quantity = user_usdt_wallet.quantity - transaction_price
-
-                    exchange_token_wallet.quantity = exchange_token_wallet.quantity - amount_buyer
-                    exchange_usdt_wallet.quantity = exchange_usdt_wallet.quantity + transaction_price
-
-                    user_token_wallet.save()
-                    user_usdt_wallet.save()
-                    exchange_token_wallet.save()
-                    exchange_usdt_wallet.save()
-
-                    context['user_usdt_wallet'] = user_token_wallet
-                    context['user_usdt_wallet'] = user_usdt_wallet
-
-                    messages.success(request, f"You bought {amount_buyer} BTC")
-                else:
-                    messages.error(request, f"The operation can not be completed - stock exchange doesn't have the resources")
-            else:
-                messages.warning(request, f"The operation can not be completed - You are too poor")
+            context = buy_now(context=context,
+                              request=request,
+                              actual_price=self.object.actual_price,
+                              token_pk=self.object.pk)
 
         return context
