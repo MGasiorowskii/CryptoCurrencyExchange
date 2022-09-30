@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 Q_CLUSTER = {
     "name": "Exchange",
     "retry": 30,
-    "timeout": 10,
+    "timeout": 30,
     "orm": "default",  # Use Django's ORM + database for broker
 }
 
