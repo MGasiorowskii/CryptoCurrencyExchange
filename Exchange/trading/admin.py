@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import WithdrawalDepositHistory, TradingHistory
 
-# Register your models here.
+admin.site.register(TradingHistory)
+admin.site.register(WithdrawalDepositHistory)

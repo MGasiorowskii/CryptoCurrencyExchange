@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
+from django.http import HttpRequest
 from wallet.models.token import Token
 from wallet.models.wallet import Wallet
 from .forms import BuySellForm
@@ -7,10 +7,6 @@ from django.views.generic.detail import DetailView
 from dashboard.utils import create_plot
 from trading.operations.buy_now import buy_now
 from trading.operations.sell_now import sell_now
-
-EXCHANGE_PK = 13
-USDT_PK = 3
-TRANSACTION_FEE = 5
 
 
 class TokenDetailView(DetailView):
@@ -47,7 +43,7 @@ class TokenDetailView(DetailView):
 
         return self.render_to_response(context)
 
-    def form_validation(self, context, request):
+    def form_validation(self, context: dict, request: HttpRequest) -> dict:
 
         if 'sell_token' in request.POST:
             context = sell_now(context=context,
