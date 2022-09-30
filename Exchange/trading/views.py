@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
 from wallet.models.token import Token
 from wallet.models.wallet import Wallet
@@ -8,6 +7,7 @@ from dashboard.utils import create_plot
 from trading.operations.buy_now import buy_now
 from trading.operations.sell_now import sell_now
 from trading.operations.get_core_information import get_core_information
+from trading.operations.get_history_transaction import get_token_history_transaction
 
 
 class TokenDetailView(DetailView):
@@ -23,6 +23,7 @@ class TokenDetailView(DetailView):
         user_pk = request.user.pk
         user_token_wallet = Wallet.objects.get(owner=user_pk, token=self.object.pk)
         user_usdt_wallet = Wallet.objects.get(owner=user_pk, token=usdt_pk)
+        context['history'] = get_token_history_transaction(token_pk=self.object.pk)
 
         context['form'] = BuySellForm()
         context['user_token_wallet'] = user_token_wallet
