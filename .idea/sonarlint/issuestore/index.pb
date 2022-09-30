@@ -1,14 +1,10 @@
 
-J
-Exchange/dashboard/apps.py,d\1\d152a82947fcd13008500ecd8782c6062e7e8aa8
 U
 %Exchange/users/migrations/__init__.py,b\9\b95c4a6a5245e1c049e266639d90c571d74f3c2c
 P
  Exchange/users/static/js/main.js,d\0\d0d19661167f0f5ddc5c4ca92e01fc18a0f8b283
 S
 #Exchange/users/static/css/style.css,c\4\c4f383d15742af7d246c3e3fd27f9eac4dd3a5f0
-K
-Exchange/dashboard/admin.py,c\8\c873ad05015eeabae67f734bb64696dd664476a7
 Y
 )Exchange/users/migrations/0001_initial.py,8\5\85e9d19ee34d701bdb363a210cb68be5f4f6a20f
 J
@@ -32,8 +28,6 @@ G
 Exchange/users/admin.py,a\2\a2a583fbad5a08a99cc33dc4db927adf4fa9fc1e
 Z
 *Exchange/wallet/tasks/periodic/__init__.py,f\f\ffedcf96e7cb4f4107c1b4f8bd1c7771f8d2f478
-I
-Exchange/Exchange/urls.py,7\e\7ee3a7c5e35870d84fc659cadfb51a68e7e85e35
 Y
 )Exchange/users/templates/users/login.html,6\d\6d7e692787093cb40977cce54bb8fede65e630f6
 [
@@ -47,10 +41,4 @@ G
 a
 1Exchange/dashboard/templates/dashboard/token.html,6\4\6491b3a63c551a1cb79b7d1d09affc7698be4489
 K
-Exchange/dashboard/forms.py,5\3\53d2581f005174fe285b125394ea1cc9f118ed02
-J
-Exchange/dashboard/urls.py,3\2\32e2fecb620689961efff2082730444833cbd84c
-K
 Exchange/dashboard/tests.py,1\3\13f931d290c65d521aa9556652fd80e4a420d5cc
-L
-Exchange/dashboard/models.py,0\9\0925b3efa4c4eb816ac0299bfff8cba675c8eff6

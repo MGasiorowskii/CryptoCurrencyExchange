@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "dashboard.apps.DashboardConfig",
     "users.apps.UsersConfig",
     "wallet.apps.WalletConfig",
+    "trading.apps.TradingConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
