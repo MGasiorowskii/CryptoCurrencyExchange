@@ -4,6 +4,7 @@ from wallet.models.token import Token
 from wallet.models.wallet import Wallet
 from .forms import BuySellForm
 from django.views.generic.detail import DetailView
+from dashboard.utils import create_plot
 
 EXCHANGE_PK = 13
 USDT_PK = 3
@@ -26,6 +27,7 @@ class TokenDetailView(DetailView):
         context['user_usdt_wallet'] = user_usdt_wallet
         context['tokens'] = Token.objects.all()
         context['title'] = self.object.name.capitalize()
+        context['graph'] = create_plot(samples=500, token_id=self.object.pk)
         return context
 
     def get(self, request, *args, **kwargs):
