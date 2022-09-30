@@ -1,7 +1,8 @@
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from .models import Wallet, Token
+from .models.wallet import Wallet
+from .models.token import Token
 from bitcoin import random_key, privtoaddr
 from eth_account import Account
 import secrets

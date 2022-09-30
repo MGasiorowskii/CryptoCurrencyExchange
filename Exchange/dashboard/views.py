@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render
-from wallet.models import Token, Wallet, History
+from wallet.models.token import Token
+from wallet.models.wallet import Wallet
+from wallet.models.history import History
 from .forms import BuySellForm
 from django.views.generic.detail import DetailView
-import plotly.offline as opy
 import plotly.graph_objs as go
 
 
@@ -24,8 +24,6 @@ def home(request):
     #trace1 = go.Scatter(x=date_times, y=prices, marker={'color': 'red', 'symbol': 104, 'size': 10},
                         #mode="lines", name='1st Trace')
 
-    #layout = go.Layout(title="Meine Daten", xaxis={'title': 'x1'}, yaxis={'title': 'x2'})
-    #figure = go.Figure(data=trace1, layout=layout)
     fig = go.Figure([go.Scatter(x=date_times, y=prices)])
     graph = fig.to_html(full_html=False, default_height=500, default_width=700)
 
