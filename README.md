@@ -109,10 +109,10 @@ $ python manage.py runserver
 - [ ] Two Factor Authentication
 - [x] Exchange
   - [x] List of tokens with price
-  - [ ] Token price flow charts
+  - [x] Token price flow charts
 - [x] Trading tokens on the exchange
 - [ ] Withdrawal/Deposit fiat and crypto
-- [ ] History of operations
+- [x] History of operations
 - [ ] Creating signals
 - [ ] API
 - [ ] ...
