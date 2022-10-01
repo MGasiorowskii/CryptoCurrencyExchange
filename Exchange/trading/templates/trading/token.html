@@ -18,56 +18,19 @@
         <div class="col-lg-8">
           <div class="row">
 
-            <!-- Top CryptoCurrencies -->
+            <!-- Chart -->
             <div class="col-12">
-              <div class="card top-selling overflow-auto">
+              <div class="card">
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
+                <div class="card-body">
+                  <h5 class="card-title">{{ object.name.capitalize }} <span>| Chart</span></h5>
 
-                    <li><a class="dropdown-item" href="#">Highest Price</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body pb-0">
-                  <h5 class="card-title">Top CryptoCurrencies <span>| Tabel</span></h5>
-
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Token</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">1h</th>
-                        <th scope="col">24h</th>
-                        <th scope="col">7d</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    {% for token in tokens %}
-                      <tr>
-                        <th scope="row"><a href="{% url 'token-detail' slug=token.name %}"><img src="{{ token.image.url }}" alt=""></a></th>
-                        <td><a href="{% url 'token-detail' slug=token.name %}" class="card-title">{{ token.name.capitalize }} <span> {{ token.symbol }}</span></a></td>
-                        <td class="fw-bold">${{token.actual_price}}</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
-                      </tr>
-
-                    {% endfor %}
-                    </tbody>
-                  </table>
+                  {{ graph|safe }}
 
                 </div>
 
               </div>
-            </div><!-- End Top CryptoCurrencies -->
+            </div><!-- End Chart -->
 
             <!-- Trading Form - Buy-->
             <div class="col-lg-6">
@@ -149,20 +112,6 @@
               </div>
             </div><!-- End Trading Form - Sell-->
 
-            <!-- Chart -->
-            <div class="col-12">
-              <div class="card">
-
-                <div class="card-body">
-                  <h5 class="card-title">{{ object.name.capitalize }} <span>| Chart</span></h5>
-
-                  {{ graph|safe }}
-
-                </div>
-
-              </div>
-            </div><!-- End Chart -->
-
             <!-- Recent Transactions -->
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
@@ -186,7 +135,6 @@
                       <tr class="text">
                         <td scope="row">#{{transaction.id}}</td>
                         {%if transaction.type == 'buy'%}
-                        <a class="text-success">
                           <th><a class="text-success">{{transaction.quantity}} {{object.symbol}}</a></th>
                           <th><a class="text-success">{{transaction.transaction_price}} USDT</a></th>
                         {%else%}
@@ -204,6 +152,57 @@
 
               </div>
             </div><!-- End Recent Transactions -->
+
+            <!-- Top CryptoCurrencies -->
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Highest Price</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Top CryptoCurrencies <span>| Tabel</span></h5>
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Token</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">1h</th>
+                        <th scope="col">24h</th>
+                        <th scope="col">7d</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for token in tokens %}
+                      <tr>
+                        <th scope="row"><a href="{% url 'token-detail' slug=token.name %}"><img src="{{ token.image.url }}" alt=""></a></th>
+                        <td><a href="{% url 'token-detail' slug=token.name %}" class="card-title">{{ token.name.capitalize }} <span> {{ token.symbol }}</span></a></td>
+                        <td class="fw-bold">${{token.actual_price}}</td>
+                        <td>???</td>
+                        <td>???</td>
+                        <td>???</td>
+                      </tr>
+
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Top CryptoCurrencies -->
 
           </div>
         </div><!-- End Left side columns -->
