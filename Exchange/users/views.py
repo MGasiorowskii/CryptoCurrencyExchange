@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
+from trading.operations.get_history_transaction import get_user_history_transaction
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
@@ -70,6 +71,7 @@ def profile(request):
                'subtitle': 'Home',
                'user_form': user_form,
                'profile_form': profile_form,
-               'password_form': password_form}
+               'password_form': password_form,
+               'history': get_user_history_transaction(user_pk=request.user.pk)}
 
     return render(request, 'users/profile.html', context)
