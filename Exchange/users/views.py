@@ -7,6 +7,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from trading.operations.get_history_transaction import get_user_history_transaction
+from .utils import get_user_balance
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
@@ -67,11 +68,16 @@ def profile(request):
                 for _, error in password_form.errors.items():
                     messages.error(request, f"{error[0]}", extra_tags='danger')
 
+    user_pk = request.user.pk
+    user_balance, wallet_values, wallets = get_user_balance(user_pk=user_pk)
+
     context = {'title': "Profile",
                'subtitle': 'Home',
                'user_form': user_form,
                'profile_form': profile_form,
                'password_form': password_form,
-               'history': get_user_history_transaction(user_pk=request.user.pk)}
+               'history': get_user_history_transaction(user_pk=user_pk),
+               'balance': user_balance,
+               'wallets': zip(wallet_values, wallets)}
 
     return render(request, 'users/profile.html', context)
