@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.forms import User
 from .models import Profile
+from creditcards.models import CardNumberField, CardExpiryField, SecurityCodeField
 
 
 class UserRegisterForm(UserCreationForm):
@@ -25,3 +26,12 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+class DepositForm(forms.Form):
+    card_number = forms.NumberInput()
+    card_month_expired = forms.NumberInput()
+    card_year_expired = forms.NumberInput()
+    card_ccv = forms.NumberInput()
+    name = forms.CharField()
+    amount = forms.NumberInput()

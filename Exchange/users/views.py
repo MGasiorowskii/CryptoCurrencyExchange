@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, DepositForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -7,6 +7,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from trading.operations.get_history_transaction import get_user_history_transaction
+from wallet.models.wallet import Wallet
+from trading.operations.get_core_information import get_core_information
 from .utils import get_user_balance
 
 
@@ -81,3 +83,25 @@ def profile(request):
                'wallets': zip(wallet_values, wallets)}
 
     return render(request, 'users/profile.html', context)
+
+
+@login_required
+def deposit(request):
+    form = DepositForm()
+
+    if request.method == "POST":
+        form = DepositForm(request.POST)
+
+        if form.is_valid():
+            amount = form.data['amount']
+            user_pk = request.user.pk
+            _, usdt_pk, _ = get_core_information()
+
+            user_wallet = Wallet.objects.get(owner=user_pk, token=usdt_pk)
+            user_wallet.quantity = float(amount) + user_wallet.quantity
+            user_wallet.save()
+
+            messages.success(request, "Your wallet has been charged!")
+
+    return render(request, "operations/deposit.html", {"title": "Deposit",
+                                                       "form": form})
