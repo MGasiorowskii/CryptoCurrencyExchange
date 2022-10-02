@@ -38,8 +38,6 @@ K
 Exchange/dashboard/tests.py,1\3\13f931d290c65d521aa9556652fd80e4a420d5cc
 M
 Exchange/Exchange/settings.py,9\c\9c39fbc24243f8ec7c06396a79b61d20b93658f7
-c
-3Exchange/trading/operations/get_core_information.py,e\f\ef486818fc0acaf96c56cebc0abcc275556fe82d
 L
 Exchange/dashboard/models.py,0\9\0925b3efa4c4eb816ac0299bfff8cba675c8eff6
 H
@@ -54,16 +52,12 @@ H
 Exchange/wallet/views.py,5\1\5142c2609df51b08b72c2a55ef076e2b819a5dd6
 W
 'Exchange/trading/operations/sell_now.py,3\6\364822824bd6543462ecb42848b19d963e7fa158
-V
-&Exchange/trading/operations/buy_now.py,b\4\b4382454a9da4abc6b0d3e0bbc75fbed465ea64a
 g
 7Exchange/trading/operations/save_transaction_history.py,0\6\060e88ad06494558d6a6e49ee0eec36c34aa992a
 f
 6Exchange/trading/operations/get_history_transaction.py,c\e\cee3249d423bdc3f307bbb5325256114798c65dd
 Q
 !Exchange/wallet/models/history.py,4\f\4fa8da1c009b23b84b17638fdb66574943b2cfc8
-P
- Exchange/wallet/models/wallet.py,3\9\39618e696c83c462948c37e231856859c15c5d4b
 O
 Exchange/wallet/models/token.py,4\6\46ac3cbe6287736c92c4d11fbf134df68038964d
 J
