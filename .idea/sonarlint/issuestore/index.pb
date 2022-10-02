@@ -30,8 +30,6 @@ Z
 *Exchange/wallet/tasks/periodic/__init__.py,f\f\ffedcf96e7cb4f4107c1b4f8bd1c7771f8d2f478
 Y
 )Exchange/users/templates/users/login.html,6\d\6d7e692787093cb40977cce54bb8fede65e630f6
-G
-Exchange/users/forms.py,2\b\2bdb63f4ee0166b146005d4c58ef7ffddf200ab8
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 `

@@ -81,3 +81,8 @@ def profile(request):
                'wallets': zip(wallet_values, wallets)}
 
     return render(request, 'users/profile.html', context)
+
+
+@login_required
+def deposit(request):
+    return render(request, "operations/deposit.html", {"title": "Deposit"})
