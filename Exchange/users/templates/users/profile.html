@@ -21,7 +21,7 @@
 
               <img src="{{ user.profile.image.url }}" alt="Profile" class="rounded-circle">
               <h2>@{{ user.username }}</h2>
-              <h3>$$$ - soon</h3>
+              <h3>{{balance}} $</h3>
             </div>
           </div>
 
@@ -54,8 +54,42 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic"> ### </p>
+                  <h5 class="card-title">Wallets</h5>
+                  <p class="small fst-italic">
+                    <!-- Wallets-->
+                    <div class="col-12">
+                      <div class="card top-selling overflow-auto">
+
+
+                <div class="card-body pb-0">
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Token</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for value, wallet in wallets %}
+                      <tr>
+                        <th><a href=""><img src="{{ wallet.token.image.url }}" width="50" height="50"></a></th>
+                        <td><a href="" class="card-title">{{ wallet.token.name.capitalize }} <span> {{ wallet.token.symbol }}</span></a></td>
+                        <td>{{wallet.quantity}}</td>
+                        <td class="fw-bold">${{value}}</td>
+                      </tr>
+
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+                    </div><!-- End Wallets -->
+                  </p>
 
                   <h5 class="card-title">Profile Details</h5>
 
