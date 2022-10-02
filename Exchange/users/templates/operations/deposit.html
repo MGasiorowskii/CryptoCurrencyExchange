@@ -20,82 +20,88 @@
               <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                  <p class="text-center small">Enter your personal details to create account</p>
+                  <h5 class="card-title text-center pb-0 fs-4">Charge Your Account</h5>
+                  <p class="text-center small">enter your card details</p>
                 </div>
 
                 <form class="row g-3 needs-validation" novalidate method="post">
-              {% csrf_token %}
+                  {% csrf_token %}
 
-              <div class="col-12">
-                <label for="yourName" class="form-label">Your Name</label>
-                <input type="text" name="first_name" class="form-control" id="yourName" value="{{ form.data.first_name }}" required>
-              </div>
+                  <div class="col-12">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" name="first_name" class="form-control" id="Name" placeholder="Enter your name" required>
+                  </div>
 
-              <div class="col-12">
-                <label for="yourEmail" class="form-label">Your Email</label>
-                <select class="form-select form-select" aria-label="Default select example" id="yourEmail">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
+                  <div class="col-12">
+                    <label for="CreditCard" class="form-label">Credit Card Number</label>
+                      <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                  <i class="bi bi-credit-card"></i>
+                              </div>
+                          </div>
+                          <input type="number" name="credit_card_number" class="form-control" id="CreditCard" placeholder="0000 0000 0000 0000" required>
+                      </div>
+                  </div>
 
+                  <div class="col-4">
+                    <label for="Month" class="form-label">Month</label>
+                    <select class="form-select form-select" aria-label="Month select" id="Month">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                  </div>
 
+                  <div class="col-4">
+                    <label for="Year" class="form-label">Year</label>
+                    <select class="form-select form-select" aria-label="Year select" id="Year">
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                    </select>
+                  </div>
 
-              <div class="col-12">
-                <label for="yourUsername" class="form-label">Username</label>
-                <div class="input-group has-validation">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                  <input type="text" name="username" class="form-control" id="yourUsername" value="{{ form.data.username }}" required>
+                  <div class="col-4">
+                    <label for="cvv" class="form-label">CVV/CVC</label>
+                      <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                  <i class="bi bi-key"></i>
+                              </div>
+                          </div>
+                          <input type="number" name="cvv" class="form-control" id="cvv" placeholder="123" required>
+                      </div>
+                  </div>
 
-                  {% if form.username.errors %}
-                    <div id="UsernameInvalidFeedback" class="text-danger">{{ form.username.errors }}</div>
-                  {% else %}
-                    <div id="UsernameHelpBlock" class="form-text">{{ form.username.help_text }}</div>
-                  {% endif %}
+                  <div class="col-12">
+                    <label for="Amount" class="form-label">Amount</label>
+                      <div class="input-group mb-2">
+                          <div class="input-group-text">$</div>
+                          <input type="number" name="amount" class="form-control" id="Amount" placeholder="0" required>
+                      </div>
+                  </div>
 
-                </div>
-              </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary w-100" type="submit">Deposit USD</button>
+                  </div>
 
-              <div class="col-12">
-                <label for="yourPassword" class="form-label">Password</label>
-                <input type="password" name="password1" class="form-control" id="yourPassword" required>
-
-                {% if form.password1.errors %}
-                  <div id="Password1InvalidFeedback" class="text-danger">{{ form.password1.errors }}</div>
-                {% else %}
-                  <div id="Password1HelpBlock" class="form-text">{{ form.password1.help_text }}</div>
-                {% endif %}
-
-              </div>
-
-              <div class="col-12">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" name="password2" class="form-control" id="confirmPassword" required>
-
-                {% if form.password2.errors %}
-                  <div id="Password2InvalidFeedback" class="text-danger">{{ form.password2.errors }}</div>
-                {% else %}
-                  <div id="Password2HelpBlock" class="form-text">{{ form.password2.help_text }}</div>
-                {% endif %}
-
-              </div>
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                  <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                  <div class="invalid-feedback">You must agree before submitting.</div>
-                </div>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary w-100" type="submit">Create Account</button>
-              </div>
-              <div class="col-12">
-                <p class="small mb-0">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
-              </div>
-            </form>
+                </form>
               </div>
             </div>
           </div>
